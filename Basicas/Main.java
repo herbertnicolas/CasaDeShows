@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
 public class Main {
     static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
@@ -70,6 +68,7 @@ public class Main {
                 System.out.println("Qual funçao deseja realizar? \n1 - Criar evento \n2 - Alterar evento");
 
                 if(op2 == 1){
+                    //A entrada do usuario aqui é separada num array
                     System.out.println("");
 
                     String[] dadosEvento = new String[5];
