@@ -1,10 +1,10 @@
-package Auxiliares;
+package auxiliares;
 
 import java.util.Date;
 
 public class Reserva {
-    String nomeEvento;
+    Evento nomeEvento;
     Date dataEvento;
-    
+
 
 }

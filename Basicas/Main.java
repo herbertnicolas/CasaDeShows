@@ -1,10 +1,12 @@
-package Basicas;
+package basicas;
 
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class Main {
     static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -44,7 +46,7 @@ public class Main {
 
             } else if (op == 2) {
                 
-                System.out.println("Ok. Qual o nome do cliente?");
+                System.out.println("Ok. Qual o nome do funcionário?");
                 String nome = in.next();
                 
                 System.out.println("Agora digite sua data de nascimento no formato 'dd-MMM-yyyy':");
@@ -58,11 +60,32 @@ public class Main {
                     e.printStackTrace();
                 }
 
-                System.out.println("Digite agora o seu CPF:");
+                System.out.println("Digite agora o CPF:");
                 String cpf = in.next();
 
                 Funcionario f = new Funcionario(nome, date, cpf);
                 funcionarios.add(f);
+
+                int op2 = in.nextInt();
+                System.out.println("Qual funçao deseja realizar? \n1 - Criar evento \n2 - Alterar evento");
+
+                if(op2 == 1){
+                    System.out.println("");
+
+                    String[] dadosEvento = new String[5];
+                    String entrada = in.nextLine();
+                    dadosEvento = entrada.split(",");
+
+                    SimpleDateFormat eventDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+                    Date eventDate = null; 
+                    try{
+                        eventDate = eventDateFormat.parse(dadosEvento[2]);
+                    }catch(ParseException e){
+                        e.printStackTrace();
+                    }
+
+                    f.criaEvento(dadosEvento[0], dadosEvento[1], eventDate, Integer.parseInt(dadosEvento[3]), Double.parseDouble(dadosEvento[4]));
+                }
 
             } else if (op == 3) {
                 for (int i = 0; i < clientes.size(); i++) {
