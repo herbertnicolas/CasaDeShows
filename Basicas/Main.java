@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    //TO DO NEXT:
+    // 1 - Fazer metodo de Login pra nao perguntar qual o tipo de usuario
+    // 2 - Criar metodo de mostrarEventos() para o CLIENTE
+
     static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
@@ -15,10 +19,11 @@ public class Main {
 
         
         while(true){
+    
             System.out.println("Bem-vindo! Qual o tipo de usuário deseja cadastrar no banco de dados? \n1 - Cliente \n2 - Funcionario \n3 - Finalizar e listar cadastrados\n");
             int op = in.nextInt();
 
-            if (op == 1) { // é cliente
+            if (op == 1) { // é CLIENTE
 
                 System.out.println("Qual o nome do cliente?"); 
                 String nome = in.next();
@@ -42,7 +47,7 @@ public class Main {
                 
                 clientes.add(c);
 
-            } else if (op == 2) {
+            } else if (op == 2) {  //é FUNCIONARIO
                 
                 System.out.println("Ok. Qual o nome do funcionário?");
                 String nome = in.next();
@@ -67,7 +72,8 @@ public class Main {
                 int op2 = in.nextInt();
                 System.out.println("Qual funçao deseja realizar? \n1 - Criar evento \n2 - Alterar evento");
 
-                if(op2 == 1){
+                if(op2 == 1){ 
+                    //cria evento
                     //A entrada do usuario aqui é separada num array
                     System.out.println("");
 
@@ -84,6 +90,13 @@ public class Main {
                     }
 
                     f.criaEvento(dadosEvento[0], dadosEvento[1], eventDate, Integer.parseInt(dadosEvento[3]), Double.parseDouble(dadosEvento[4]));
+                    
+                }else if(op == 2){
+                    //altera um determinado evento
+                    f.alteraEvento();
+                }else if(op == 3){
+                    //mostra eventos de um funcionario
+                    f.mostraEventosF();
                 }
 
             } else if (op == 3) {
