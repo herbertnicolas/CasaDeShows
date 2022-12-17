@@ -1,12 +1,13 @@
 package basicas;
+import auxiliares.*;
+import java.util.ArrayList;
 import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 abstract class Pessoa{
     String nome;
     Date dataNasc;
     String cpf;
+    ArrayList<Evento> listaEventos = new ArrayList<Evento>();
 
     public Pessoa(String nome, Date dataNasc, String cpf){
         this.nome = nome;
